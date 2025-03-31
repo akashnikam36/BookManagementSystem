@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/bookdb
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=your-secret-key
+      - JWT_SECRET_KEY=your-jwt-secret-key
+      - LLAMA_MODEL_URL=http://llama:11434/api/generate
+    depends_on:
+      - db
+      - redis
+      - llama
+    volumes:
+      - .:/app
+    command: >
+      sh -c "flask db upgrade &&
+             gunicorn --bind 0.0.0.0:5000 run:app"
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=bookdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:6
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  llama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - llama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+volumes:
+  postgres_data:
+  redis_data:
+  llama_data: 
