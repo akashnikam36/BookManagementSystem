@@ -169,20 +169,3 @@ Run the container:
 ```bash
 docker run -p 5000:5000 book-management-system
 ```
-
-## Cloud Deployment
-
-The application is configured for deployment on AWS. Follow these steps:
-
-1. Set up an AWS account
-2. Configure AWS CLI
-3. Deploy using the provided CloudFormation template
-4. Set up CI/CD pipeline using GitHub Actions
-
-## Security
-
-- JWT-based authentication
-- Password hashing using bcrypt
-- CORS enabled
-- Rate limiting
-- Input validation 
