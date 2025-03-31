@@ -1,0 +1,315 @@
+{
+	"info": {
+		"_postman_id": "2a0c3ab6-02d5-4c09-ab2e-3fb2a097f00b",
+		"name": "JK_assignment_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1418260"
+	},
+	"item": [
+		{
+			"name": "/api/users/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"testuser\",\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5001/api/users/register \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"username\": \"testuser\",\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n  }'"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/users/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"testuser\",\n    \"password\": \"password123\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5001/api/users/login \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"username\": \"testuser\",\n    \"password\": \"password123\"\n  }'"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/books",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0MzA4ODkxNywianRpIjoiNzhhMjhmMGYtNzE0ZC00OWQzLWEzNjktMTQ0ZDdjZTM0YmZlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzQzMDg4OTE3LCJjc3JmIjoiZjZlMjk0MGMtMDNhYy00MTIzLWJlNWYtZWYzM2Y3MjUxYzI4IiwiZXhwIjoxNzQzMDg5ODE3fQ.yyvV-Qhxkrr6C-0Fq2wMnaUsTvOi-fFENPkb1Y8Yi9w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"The Great Gatsby\",\n    \"author\": \"F. Scott Fitzgerald\",\n    \"genre\": \"Classic Literature\",\n    \"year_published\": 1925,\n    \"summary\": \"A story of decadence and excess, following the mysterious millionaire Jay Gatsby\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5001/api/books \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer <your_token>\" \\\n  -d '{\n    \"title\": \"The Great Gatsby\",\n    \"author\": \"F. Scott Fitzgerald\",\n    \"genre\": \"Classic Literature\",\n    \"year_published\": 1925,\n    \"summary\": \"A story of decadence and excess, following the mysterious millionaire Jay Gatsby\"\n  }'"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/books/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://localhost:5001/api/books"
+			},
+			"response": []
+		},
+		{
+			"name": "reviews",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0MzE0MTgxOCwianRpIjoiZTBiNjIwYTEtNzFiYi00MzJlLTk0ZjYtNDMyZmZmN2EyY2QyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDMxNDE4MTgsImNzcmYiOiIwZmM2ZmQyZC00MDQzLTQ4MzQtYTQzOS1hNzc4NTAyYzQ1MjAifQ.kDQfzgIOznghFXRVJNG4Zw_Elsr0Hoi23u86k67Ms58",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rating\": 5,\n    \"review_text\": \"An absolute masterpiece! The character development and storytelling are exceptional.\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/books/1/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books",
+						"1",
+						"reviews"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5001/api/books/1/reviews \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer <your_token>\" \\\n  -d '{\n    \"rating\": 5,\n    \"review_text\": \"An absolute masterpiece! The character development and storytelling are exceptional.\"\n  }'"
+			},
+			"response": []
+		},
+		{
+			"name": "reviews",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/books/1/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books",
+						"1",
+						"reviews"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://localhost:5001/api/books/1/reviews"
+			},
+			"response": []
+		},
+		{
+			"name": "summary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/books/1/summary",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books",
+						"1",
+						"summary"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://localhost:5001/api/books/1/summary"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/recommendations",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token>"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5001/api/recommendations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"recommendations"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://localhost:5001/api/recommendations \\\n  -H \"Authorization: Bearer <your_token>\""
+			},
+			"response": []
+		},
+		{
+			"name": "api/generate-summary",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"book_id\": 1,\n    \"content\": \"The Great Gatsby is a novel by F. Scott Fitzgerald set in the Roaring Twenties. The story primarily concerns the young and mysterious millionaire Jay Gatsby and his passion for the beautiful Daisy Buchanan. The narrative is told through the eyes of Nick Carraway, who moves next door to Gatsby and becomes drawn into his world of obsession, love, and tragedy.\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/generate-summary",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"generate-summary"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5001/api/generate-summary \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer <your_token>\" \\\n  -d '{\n    \"book_id\": 1,\n    \"content\": \"The Great Gatsby is a novel by F. Scott Fitzgerald set in the Roaring Twenties. The story primarily concerns the young and mysterious millionaire Jay Gatsby and his passion for the beautiful Daisy Buchanan. The narrative is told through the eyes of Nick Carraway, who moves next door to Gatsby and becomes drawn into his world of obsession, love, and tragedy.\"\n  }'"
+			},
+			"response": []
+		}
+	]
+}
